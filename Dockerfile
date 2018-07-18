@@ -23,8 +23,8 @@ RUN apt-get install -y openjdk-7-jdk
 
 #PEC INSTALL
 
-#RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
-#RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
+RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
+RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
 WORKDIR /home/PEC/install
 
 #LOCALE PT_BR
@@ -35,6 +35,6 @@ RUN curl -o /etc/java.conf https://raw.githubusercontent.com/lissonpsantos2/pec-
 
 RUN apt-get install -y locales
 RUN locale-gen
-#RUN sh instalador_linux.sh
+RUN sh instalador_linux.sh
 
 WORKDIR /
