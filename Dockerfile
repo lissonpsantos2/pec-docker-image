@@ -23,17 +23,15 @@ RUN apt-get install -y openjdk-7-jdk
 
 #PEC INSTALL
 
-RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
-RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
-WORKDIR /home/PEC/install
+#RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
+#RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
+#WORKDIR /home/PEC/install
 
 #LOCALE PT_BR
-RUN rm /etc/locale.gen
-ADD locale /etc/locale.gen
+RUN curl -o /etc/locale.gen https://raw.githubusercontent.com/lissonpsantos2/pec-docker-image/master/locale #redo
 
 #JAVA.CONF FILE
-RUN rm /etc/java.conf
-ADD javaconf /etc/java.conf
+RUN curl -o /etc/java.conf https://raw.githubusercontent.com/lissonpsantos2/pec-docker-image/master/javaconf #redo
 
 RUN apt-get install -y locales
 RUN locale-gen
