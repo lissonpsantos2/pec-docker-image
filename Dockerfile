@@ -38,3 +38,5 @@ RUN locale-gen
 RUN sh instalador_linux.sh
 
 WORKDIR /
+
+ENTRYPOINT service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh start ; /bin/bash
