@@ -3,7 +3,7 @@ FROM lissonpsantos2/debian-jessie-basic:latest
 MAINTAINER Alisson Pereira dos Santos <lissonpsantos2@gmail.com>
 
 #IMAGE VARIABLES
-ENV PEC_FOLDER /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh
+ENV PEC_FOLDER mkdir -p /var/lock/subsys/ && service e-SUS-AB-PostgreSQL restart && service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh restart
 ENV IMAGE_ALIAS ESUS 3.0.08
 ENV SEPARATOR -
 ENV INFO_IMAGE "To start the PEC3.0 run: sh ${PEC_FOLDER} start"
@@ -23,8 +23,8 @@ RUN apt-get install -y openjdk-7-jdk
 
 #PEC INSTALL
 
-RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
-RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
+RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_09-Treinamento_Linux__30092018.zip
+RUN unzip Instalador-eSUS-AB-PEC-3_0_09-Treinamento_Linux__30092018.zip -d /home/PEC/install
 WORKDIR /home/PEC/install
 
 #LOCALE PT_BR
@@ -39,4 +39,4 @@ RUN sh instalador_linux.sh
 
 WORKDIR /
 
-ENTRYPOINT service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh start ; /bin/bash
+ENTRYPOINT mkdir -p /var/lock/subsys/ && service e-SUS-AB-PostgreSQL restart && service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh start ; /bin/bash
