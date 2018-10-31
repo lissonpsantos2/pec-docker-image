@@ -4,7 +4,7 @@ MAINTAINER Alisson Pereira dos Santos <lissonpsantos2@gmail.com>
 
 #IMAGE VARIABLES
 ENV PEC_FOLDER /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh
-ENV IMAGE_ALIAS ESUS 3.0.08
+ENV IMAGE_ALIAS ESUS 3.0.13
 ENV SEPARATOR -
 ENV INFO_IMAGE "To start the PEC3.0 run: sh ${PEC_FOLDER} start"
 
@@ -23,8 +23,8 @@ RUN apt-get install -y openjdk-7-jdk
 
 #PEC INSTALL
 
-RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip
-RUN unzip Instalador-eSUS-AB-PEC-3_0_08-Treinamento_Linux__12072018.zip -d /home/PEC/install
+RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3.0.13-Treinamento-Linux_17102018.zip
+RUN unzip Instalador-eSUS-AB-PEC-3.0.13-Treinamento-Linux_17102018.zip -d /home/PEC/install
 WORKDIR /home/PEC/install
 
 #LOCALE PT_BR
