@@ -5,6 +5,7 @@ MAINTAINER Alisson Pereira dos Santos <lissonpsantos2@gmail.com>
 #IMAGE VARIABLES
 ENV PEC_FOLDER /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh
 ENV IMAGE_ALIAS ESUS 3.0.13
+ENV PEC_FOLDER mkdir -p /var/lock/subsys/ && service e-SUS-AB-PostgreSQL restart && service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh restart
 ENV SEPARATOR -
 ENV INFO_IMAGE "To start the PEC3.0 run: sh ${PEC_FOLDER} start"
 
@@ -39,4 +40,4 @@ RUN sh instalador_linux.sh
 
 WORKDIR /
 
-ENTRYPOINT service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh start ; /bin/bash
+ENTRYPOINT mkdir -p /var/lock/subsys/ && service e-SUS-AB-PostgreSQL restart && service e-SUS-AB-PostgreSQL start && sh /opt/e-SUS/jboss-as-7.2.0.Final/bin/init.d/jboss-as-standalone-lsb.sh start ; /bin/bash
