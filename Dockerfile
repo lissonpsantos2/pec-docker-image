@@ -24,8 +24,8 @@ RUN apt-get install -y openjdk-7-jdk
 
 #PEC INSTALL
 
-RUN wget http://189.28.128.100/dab/docs/portaldab/aplicativos/Instalador-eSUS-AB-PEC-3.0.13-Treinamento-Linux_17102018.zip
-RUN unzip Instalador-eSUS-AB-PEC-3.0.13-Treinamento-Linux_17102018.zip -d /home/PEC/install
+RUN wget https://arquivos.bridge.ufsc.br/AB/PEC/3.2.16/treinamento/instalador/Instalador-eSUS-AB-PEC-3.2.16-Treinamento-Linux.zip -O pec.zip
+RUN unzip pec.zip -d /home/PEC/install
 WORKDIR /home/PEC/install
 
 #LOCALE PT_BR
