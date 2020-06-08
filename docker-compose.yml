@@ -1,0 +1,17 @@
+version: '2'
+services:
+  pec-app:
+    image: lissonpsantos2/debian-pec:3.2.24
+    restart: always
+    volumes:
+      - ./:/pec-docker/
+    ports:
+      - 8000:8080
+    stdin_open: true
+    tty: true
+    entrypoint:
+      - bash
+      - "entrypoint.sh"
+    working_dir: /pec-docker/
+    mem_limit: 2g
+
